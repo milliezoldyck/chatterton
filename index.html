@@ -1,0 +1,239 @@
+```html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MESSAGE // CHATERTTON</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        min-height: 100vh;
+        background: #030303;
+        color: #b7b7b7;
+        font-family: "Courier New", monospace;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background: repeating-linear-gradient(
+            0deg,
+            rgba(255,255,255,0.025) 0px,
+            rgba(255,255,255,0.025) 1px,
+            transparent 1px,
+            transparent 4px
+        );
+    }
+
+    .box {
+        width: 90%;
+        max-width: 720px;
+        border: 1px solid #333;
+        padding: 40px;
+        box-shadow: 0 0 50px rgba(0,0,0,0.8);
+    }
+
+    .top {
+        color: #666;
+        font-size: 11px;
+        letter-spacing: 3px;
+        margin-bottom: 35px;
+    }
+
+    h1 {
+        color: #ddd;
+        font-size: 25px;
+        letter-spacing: 5px;
+        margin-bottom: 30px;
+    }
+
+    .mail {
+        border-left: 2px solid #5b0000;
+        padding-left: 20px;
+        line-height: 1.9;
+    }
+
+    .name {
+        color: #9b0000;
+    }
+
+    .button {
+        margin-top: 35px;
+        background: #090909;
+        color: #aaa;
+        border: 1px solid #444;
+        padding: 13px 22px;
+        font-family: inherit;
+        cursor: pointer;
+    }
+
+    .button:hover {
+        background: #170000;
+        color: white;
+        border-color: #700000;
+    }
+
+    #response {
+        margin-top: 35px;
+        line-height: 2;
+        white-space: pre-line;
+    }
+
+    .red {
+        color: #8f0000;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .warning {
+        color: #8f0000;
+        letter-spacing: 2px;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <div class="top">
+        MESSAGE // DESTINATAIRE : CHATERTTON
+    </div>
+
+    <h1>RÉPONSE</h1>
+
+    <div class="mail">
+
+        <p>
+            Coucou Chatertton.
+        </p>
+
+        <p>
+            Tu voulais savoir si je recevais tes mails.
+        </p>
+
+        <p>
+            <strong>Oui.</strong>
+        </p>
+
+        <p>
+            Je les reçois tous.
+        </p>
+
+        <p>
+            Même ceux que tu as supprimés.
+        </p>
+
+        <p>
+            Même ceux que tu pensais ne jamais avoir envoyés.
+        </p>
+
+        <p>
+            Alors arrête de m'appeler « ma chère Morjane ».
+        </p>
+
+        <p>
+            Tu ne me connais pas aussi bien que tu le crois.
+        </p>
+
+    </div>
+
+    <button class="button" onclick="reveal()">
+        TU VEUX SAVOIR QUI JE SUIS ?
+    </button>
+
+    <div id="response" class="hidden"></div>
+
+</div>
+
+
+<script>
+
+function reveal() {
+
+    const response = document.getElementById("response");
+
+    response.classList.remove("hidden");
+
+    response.innerHTML =
+`
+<span class="warning">MESSAGE ENVOYÉ...</span>
+
+<br><br>
+
+Tu voulais jouer à ça ?
+
+<br><br>
+
+Très bien.
+
+<br>
+
+Tu veux savoir qui je suis ?
+
+<br><br>
+
+<span class="red">Commence par me dire pourquoi tu as peur.</span>
+
+<br><br>
+
+Parce que moi...
+
+<br><br>
+
+je sais déjà qui tu es.
+
+<br><br>
+
+Je sais où tu étais.
+
+<br>
+
+Je sais ce que tu cherchais.
+
+<br>
+
+Et surtout...
+
+<br><br>
+
+<span class="red">je sais pourquoi tu m'écris.</span>
+
+<br><br>
+
+Alors maintenant, Chatertton...
+
+<br><br>
+
+<span class="red">c'est à ton tour d'avoir peur.</span>
+
+<br><br>
+
+Tu voulais mon identité.
+
+<br>
+
+Mais tu viens de me donner la tienne.
+`;
+
+}
+
+</script>
+
+</body>
+</html>
+```
