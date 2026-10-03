@@ -1,11 +1,9 @@
-```html
 <!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>MESSAGE // CHATERTTON</title>
+<title>CHATERTTON</title>
 
 <style>
     * {
@@ -14,16 +12,17 @@
 
     body {
         margin: 0;
-        min-height: 100vh;
-        background: #030303;
-        color: #b7b7b7;
+        background: #050505;
+        color: #d6d6d6;
         font-family: "Courier New", monospace;
+        min-height: 100vh;
         display: flex;
         justify-content: center;
         align-items: center;
+        overflow: hidden;
     }
 
-    body::after {
+    body::before {
         content: "";
         position: fixed;
         inset: 0;
@@ -37,203 +36,300 @@
         );
     }
 
-    .box {
+    .container {
         width: 90%;
-        max-width: 720px;
+        max-width: 750px;
+        min-height: 500px;
+        padding: 45px;
         border: 1px solid #333;
-        padding: 40px;
-        box-shadow: 0 0 50px rgba(0,0,0,0.8);
+        background: #080808;
+        box-shadow: 0 0 40px rgba(120,0,0,0.15);
     }
 
-    .top {
-        color: #666;
-        font-size: 11px;
-        letter-spacing: 3px;
+    .status {
+        color: #777;
+        font-size: 12px;
         margin-bottom: 35px;
+        letter-spacing: 2px;
+    }
+
+    .status span {
+        color: #8b0000;
     }
 
     h1 {
-        color: #ddd;
-        font-size: 25px;
-        letter-spacing: 5px;
-        margin-bottom: 30px;
+        font-size: 22px;
+        font-weight: normal;
+        color: #b30000;
+        letter-spacing: 4px;
+        margin-bottom: 35px;
     }
 
-    .mail {
-        border-left: 2px solid #5b0000;
-        padding-left: 20px;
+    .message {
         line-height: 1.9;
+        font-size: 15px;
+        min-height: 250px;
     }
 
-    .name {
-        color: #9b0000;
-    }
-
-    .button {
-        margin-top: 35px;
-        background: #090909;
-        color: #aaa;
-        border: 1px solid #444;
-        padding: 13px 22px;
-        font-family: inherit;
-        cursor: pointer;
-    }
-
-    .button:hover {
-        background: #170000;
-        color: white;
-        border-color: #700000;
-    }
-
-    #response {
-        margin-top: 35px;
-        line-height: 2;
-        white-space: pre-line;
+    .line {
+        margin: 10px 0;
+        opacity: 0;
+        animation: appear 1s forwards;
     }
 
     .red {
-        color: #8f0000;
+        color: #9e0000;
+    }
+
+    .important {
+        color: #ddd;
+        font-weight: bold;
+    }
+
+    button {
+        margin-top: 30px;
+        background: transparent;
+        border: 1px solid #555;
+        color: #aaa;
+        padding: 12px 20px;
+        font-family: inherit;
+        cursor: pointer;
+        letter-spacing: 2px;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        border-color: #9e0000;
+        color: #fff;
+        box-shadow: 0 0 15px rgba(150,0,0,0.25);
     }
 
     .hidden {
         display: none;
     }
 
-    .warning {
-        color: #8f0000;
-        letter-spacing: 2px;
+    .typing {
+        color: #aaa;
+    }
+
+    .cursor {
+        animation: blink 1s infinite;
+    }
+
+    .final {
+        margin-top: 30px;
+        padding-top: 25px;
+        border-top: 1px solid #222;
+        color: #aaa;
+        line-height: 2;
+    }
+
+    @keyframes appear {
+        from {
+            opacity: 0;
+            transform: translateY(5px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes blink {
+        50% {
+            opacity: 0;
+        }
+    }
+
+    .glitch {
+        animation: glitch 0.15s infinite;
+    }
+
+    @keyframes glitch {
+        0% { transform: translateX(0); }
+        25% { transform: translateX(-1px); }
+        50% { transform: translateX(1px); }
+        75% { transform: translateX(-1px); }
+        100% { transform: translateX(0); }
     }
 </style>
 </head>
 
 <body>
 
-<div class="box">
+<div class="container">
 
-    <div class="top">
-        MESSAGE // DESTINATAIRE : CHATERTTON
+    <div class="status">
+        STATUT : <span>CONNEXION DÉTECTÉE</span><br>
+        DESTINATAIRE : CHATERTTON
     </div>
 
-    <h1>RÉPONSE</h1>
+    <h1>RÉPONSE // MORJANE</h1>
 
-    <div class="mail">
+    <div class="message" id="message">
 
-        <p>
-            Coucou Chatertton.
-        </p>
+        <div class="line" style="animation-delay:0.5s">
+            Coucou, Chatertton.
+        </div>
 
-        <p>
+        <div class="line" style="animation-delay:1.5s">
             Tu voulais savoir si je recevais tes mails.
-        </p>
+        </div>
 
-        <p>
-            <strong>Oui.</strong>
-        </p>
+        <div class="line" style="animation-delay:2.5s">
+            Oui.
+        </div>
 
-        <p>
+        <div class="line" style="animation-delay:3.5s">
             Je les reçois tous.
-        </p>
+        </div>
 
-        <p>
-            Même ceux que tu as supprimés.
-        </p>
+        <div class="line" style="animation-delay:4.5s">
+            Même ceux que tu pensais pouvoir supprimer.
+        </div>
 
-        <p>
-            Même ceux que tu pensais ne jamais avoir envoyés.
-        </p>
+        <div class="line red" style="animation-delay:5.5s">
+            Mais tu as fait une erreur.
+        </div>
 
-        <p>
-            Alors arrête de m'appeler « ma chère Morjane ».
-        </p>
+        <div class="line important" style="animation-delay:6.5s">
+            Tu pensais que c'était toi qui me faisais peur.
+        </div>
 
-        <p>
-            Tu ne me connais pas aussi bien que tu le crois.
-        </p>
+        <div class="line" style="animation-delay:7.5s">
+            Alors réponds-moi à une seule question.
+        </div>
+
+        <button id="reveal" class="hidden">
+            QUI ES-TU ?
+        </button>
 
     </div>
 
-    <button class="button" onclick="reveal()">
-        TU VEUX SAVOIR QUI JE SUIS ?
-    </button>
+    <div id="second" class="hidden">
 
-    <div id="response" class="hidden"></div>
+        <div class="typing" id="typing"></div>
+
+        <button id="identity" class="hidden">
+            ALORS, QUI ES-TU ?
+        </button>
+
+    </div>
+
+    <div id="final" class="final hidden">
+
+        <div class="glitch red">
+            IDENTITÉ : INCONNUE
+        </div>
+
+        <br>
+
+        Tu voulais savoir si je recevais tes messages.
+
+        <br><br>
+
+        Maintenant c'est moi qui veux savoir.
+
+        <br><br>
+
+        <span class="important">
+            Qui se cache derrière Chatertton ?
+        </span>
+
+        <br><br>
+
+        Tu m'écris.<br>
+        Tu me cherches.<br>
+        Tu veux que je sache qui tu es.
+
+        <br><br>
+
+        Alors fais-le toi-même.
+
+        <br>
+
+        <span class="red">
+            DIS-MOI QUI TU ES.
+        </span>
+
+        <br><br>
+
+        <span style="color:#555;">
+            Et cette fois, je te laisse répondre.
+        </span>
+
+    </div>
 
 </div>
 
-
 <script>
 
-function reveal() {
+const reveal = document.getElementById("reveal");
+const second = document.getElementById("second");
+const typing = document.getElementById("typing");
+const identity = document.getElementById("identity");
+const final = document.getElementById("final");
 
-    const response = document.getElementById("response");
+setTimeout(() => {
+    reveal.classList.remove("hidden");
+}, 8500);
 
-    response.classList.remove("hidden");
 
-    response.innerHTML =
-`
-<span class="warning">MESSAGE ENVOYÉ...</span>
+reveal.addEventListener("click", () => {
 
-<br><br>
+    reveal.style.display = "none";
+    second.classList.remove("hidden");
 
-Tu voulais jouer à ça ?
+    const text = `
+...
+Pourquoi tu me réponds comme ça ?
 
-<br><br>
+Tu n'étais pas censée comprendre.
 
-Très bien.
+Tu n'étais pas censée chercher.
 
-<br>
+...
 
-Tu veux savoir qui je suis ?
+Attends.
 
-<br><br>
+Comment tu sais que je t'écris ?
 
-<span class="red">Commence par me dire pourquoi tu as peur.</span>
-
-<br><br>
-
-Parce que moi...
-
-<br><br>
-
-je sais déjà qui tu es.
-
-<br><br>
-
-Je sais où tu étais.
-
-<br>
-
-Je sais ce que tu cherchais.
-
-<br>
-
-Et surtout...
-
-<br><br>
-
-<span class="red">je sais pourquoi tu m'écris.</span>
-
-<br><br>
-
-Alors maintenant, Chatertton...
-
-<br><br>
-
-<span class="red">c'est à ton tour d'avoir peur.</span>
-
-<br><br>
-
-Tu voulais mon identité.
-
-<br>
-
-Mais tu viens de me donner la tienne.
 `;
 
-}
+    let i = 0;
+
+    function writeText() {
+
+        if (i < text.length) {
+            typing.innerHTML = text.substring(0, i + 1)
+                .replace(/\n/g, "<br>");
+            i++;
+            setTimeout(writeText, 35);
+        } else {
+            setTimeout(() => {
+                identity.classList.remove("hidden");
+            }, 1200);
+        }
+    }
+
+    writeText();
+});
+
+
+identity.addEventListener("click", () => {
+
+    identity.style.display = "none";
+
+    final.classList.remove("hidden");
+
+    window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: "smooth"
+    });
+
+});
 
 </script>
 
 </body>
 </html>
-```
